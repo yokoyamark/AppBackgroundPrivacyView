@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SplashPractice</string>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="splash_content">SPLASH</string>
+</resources>
