@@ -1,30 +1,21 @@
 package com.example.splashpractice
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    val privateOvserver = PrivacyObserver()
+    lateinit var privacyObserver: PrivacyObserver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        privateOvserver.addObserver(this, R.layout.activity_splash)
+        privacyObserver = PrivacyObserver(this, R.layout.activity_splash)
+        lifecycle.addObserver(privacyObserver)
     }
 
     override fun onUserLeaveHint() {
         super.onUserLeaveHint()
-        privateOvserver.onUserLeaveHint()
+        privacyObserver.onUserLeaveHint()
     }
 
-    override fun onUserInteraction() {
-        super.onUserInteraction()
-        privateOvserver.onUserInteraction()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        privateOvserver.onResume()
-    }
 }
